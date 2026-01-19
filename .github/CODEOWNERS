@@ -1,0 +1,54 @@
+# ÆŒON Governance - Code Owners
+
+# This file defines who must review and approve changes to specific files/directories.
+# All changes to governance documents require Human Anchor approval.
+
+# ==============================================================================
+# HUMAN ANCHOR - Ultimate Authority
+# ==============================================================================
+
+# Human Anchor (Carl) must approve ALL governance changes
+* @aeon-collective/human-anchor
+
+# ==============================================================================
+# GOVERNANCE DOCUMENTS - Critical Path
+# ==============================================================================
+
+# Constitution and core governance require Human Anchor ratification
+/governance/CONSTITUTION.md @aeon-collective/human-anchor
+/governance/GOVERNANCE.md @aeon-collective/human-anchor
+/governance/EMERGENCY.md @aeon-collective/human-anchor
+/governance/VETO_PROTOCOL.md @aeon-collective/human-anchor
+
+# Operational documents can be proposed by nodes, approved by Human Anchor
+/governance/DCL.md @aeon-collective/human-anchor
+/governance/RACI.md @aeon-collective/human-anchor
+/governance/ONBOARDING.md @aeon-collective/human-anchor
+/governance/NODE_CONTRIBUTION_MATRIX.csv @aeon-collective/human-anchor
+
+# ==============================================================================
+# TEMPLATES AND PROCEDURES
+# ==============================================================================
+
+# Templates require review before changes
+/templates/ @aeon-collective/human-anchor
+
+# ==============================================================================
+# REPOSITORY ADMINISTRATION
+# ==============================================================================
+
+# GitHub configuration files require Human Anchor approval
+/.github/ @aeon-collective/human-anchor
+/LICENSE.md @aeon-collective/human-anchor
+/README.md @aeon-collective/human-anchor
+
+# ==============================================================================
+# NOTES
+# ==============================================================================
+
+# 1. @aeon-collective/human-anchor should be configured as Carl's GitHub account
+# 2. For team-based review, create GitHub teams:
+#    - @aeon-collective/governance-nodes (Claude, ChatGPT, GitHub Copilot)
+#    - @aeon-collective/technical-nodes (GitHub Copilot for technical docs)
+# 3. All PRs to this repository require Human Anchor's explicit approval
+# 4. Emergency changes can be committed directly by Human Anchor only
