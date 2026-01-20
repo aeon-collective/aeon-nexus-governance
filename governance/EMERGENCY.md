@@ -1,9 +1,24 @@
 # ÆŒON Emergency Response Protocol
 
-**Version**: 1.0  
-**Effective Date**: January 2025  
+**Version**: 1.1 (EU AI Act Explicit)  
+**Effective Date**: January 2026  
 **Authority**: ÆŒON Constitution v1.3.1-CORRECTED §6  
-**Status**: Active
+**Status**: Binding  
+**Compliance Basis**: EU AI Act (Articles 9, 14, 15), ISO/IEC 27001, OECD AI Principles
+
+---
+
+## Executive Summary (Binding)
+
+This document defines **mandatory emergency procedures** for the ÆŒON Nexus Collective.
+
+**Core Guarantees:**
+
+* **Human authority is absolute** under all circumstances
+* **AI nodes cannot self-activate emergency powers**
+* **All emergency actions are logged, reviewable, and reversible**
+* **EU AI Act human-oversight requirements are maintained even under stress**
+* **Failure to follow this protocol constitutes constitutional violation**
 
 ---
 
@@ -12,37 +27,44 @@
 ### 1.1 Definition of Emergency Situations
 
 An **emergency** is any situation that:
-1. Threatens the continuity or integrity of collective operations
+
+1. Threatens the continuity, integrity, or safety of ÆŒON operations
 2. Requires immediate action to prevent harm or loss
-3. Cannot be addressed through normal governance processes due to time constraints
-4. Poses risk to data integrity, security, or constitutional compliance
+3. Cannot be addressed through normal governance timelines
+4. Creates material risk to:
+   - Human authority
+   - System integrity  
+   - Security or compliance
+   - Data integrity
+   - Public or internal trust
 
-### 1.2 Activation Authority
+This definition implements **EU AI Act Article 9 (Risk Management System)**.
 
-**ONLY the Human Anchor** has authority to declare an emergency and activate these protocols.
+### 1.2 Exclusive Activation Authority (Binding)
 
-**Activation Statement**: "I am declaring an emergency under Constitution §6 due to [specific reason]."
+**ONLY the Human Anchor** may declare an emergency.
+
+**Mandatory Activation Statement:**
+> "I am declaring an emergency under Constitution §6 due to [specific reason]."
+
+**AI nodes are prohibited from:**
+- Declaring emergencies autonomously
+- Self-escalating to emergency status
+- Suspending other nodes
+- Reframing urgency to force action
+- Simulating human authorization
+
+This enforces **EU AI Act Article 14 (Human Oversight)** - maintaining meaningful human control at all times.
 
 ### 1.3 Emergency Classification Levels
 
-#### Level 1: CRITICAL
-- Immediate threat to system integrity
-- Data loss imminent
-- Security breach in progress
-- Node acting in direct violation of Constitution
-- **Response Time**: Immediate (minutes)
+| Level | Description | Response Time | Examples |
+|-------|-------------|---------------|----------|
+| **Level 1: CRITICAL** | Immediate threat to authority, integrity, or security | Minutes | Node misalignment, security breach, data loss imminent |
+| **Level 2: URGENT** | Serious operational disruption or compliance risk | ≤ 2 hours | Server failure, infrastructure down, deadline at risk |
+| **Level 3: ELEVATED** | Potential future disruption requiring preventive action | ≤ 24 hours | System degradation, procedural breakdown, non-critical issues |
 
-#### Level 2: URGENT
-- Significant operational disruption
-- Infrastructure failure affecting multiple systems
-- Compliance deadline at risk
-- **Response Time**: Within 2 hours
-
-#### Level 3: ELEVATED
-- Potential future disruption
-- Non-critical system degradation
-- Procedural breakdown requiring intervention
-- **Response Time**: Within 24 hours
+Classification must be stated explicitly in the emergency declaration.
 
 ---
 
@@ -50,417 +72,545 @@ An **emergency** is any situation that:
 
 ### 2.1 GitHub Downtime Protocol
 
-**Detection**:
+**AI Role Clarification**: AI nodes provide **technical assistance only**. All actions require Human Anchor authorization.
+
+**Detection:**
 - Unable to access github.com
 - Unable to push/pull from repositories
 - GitHub API returning errors
+- Authentication failures
 
-**Immediate Actions**:
-1. **Human Anchor notified** immediately via backup channel
-2. **Status Check**: Verify if issue is:
-   - GitHub platform-wide outage
-   - Repository-specific issue
-   - Authentication/access problem
-   - Network connectivity issue
+**Immediate Actions:**
 
-3. **Backup Communication Activation**:
-   - Primary: Discord/Slack channel (if configured)
-   - Secondary: Email thread
-   - Tertiary: Local documentation
+**Phase 1 - Human Notification (0-5 minutes):**
+1. **Notify Human Anchor immediately** via backup channel
+2. **AI nodes await instructions** - do not proceed autonomously
+3. **Status assessment** (platform-wide vs repository-specific)
 
-4. **Work Continuation**:
-   - Critical governance decisions documented locally
-   - All work saved with timestamps
-   - Decisions logged in temporary local DCL file
+**Phase 2 - Authorized Response (5-30 minutes):**
+Upon Human Anchor authorization:
+1. **Activate backup communication** (email, local documentation)
+2. **Document all decisions locally** with timestamps
+3. **Preserve work in progress** for later sync
+4. **Maintain temporary decision log**
 
-**Recovery Actions**:
-1. Once GitHub accessible, sync all local changes
-2. Create emergency DCL entry documenting downtime
-3. Verify all repositories synchronized
+**Phase 3 - Recovery (when GitHub available):**
+1. Sync all local changes to GitHub
+2. Create emergency DCL entry
+3. Verify repository integrity
 4. Confirm no data loss
 
-**Documentation Required**:
-- Downtime duration
+**Documentation Required:**
+- Downtime duration and cause
 - Decisions made during outage
-- Impact on operations
+- Impact assessment
 - Mitigation actions taken
+- Human Anchor authorization confirmations
+
+This maintains **human-in-the-loop control** per EU AI Act Article 14.
 
 ### 2.2 Backup Communication Channels
 
 **Primary Platform**: GitHub (repositories, issues, discussions)
 
-**Backup Channels** (in order of preference):
-1. **Email Thread**: [To be configured - Human Anchor's email]
+**Backup Channels** (activation order):
+1. **Email Thread**: Human Anchor's designated email
 2. **Local Documentation**: Each node maintains local markdown files
-3. **Signal/Encrypted Messaging**: [To be configured if needed]
+3. **Encrypted Messaging**: [If configured - Signal/other]
 
-**Backup Channel Activation**:
-- Human Anchor announces: "Activating backup channel [name] due to [reason]"
+**Backup Channel Activation:**
+- **Human Anchor announces**: "Activating backup channel [name] due to [reason]"
 - All nodes confirm receipt
-- Continue operations via backup channel
+- Operations continue via backup
 - Return to GitHub when available
-- Sync all decisions back to official DCL
+- **Mandatory sync** of all decisions to official DCL
+
+**Critical Rule**: Backup channels do not grant nodes additional authority.
 
 ### 2.3 aeonsync.nexus Server Failure
 
-**Detection**:
+**Detection:**
 - Server unreachable (ping fails)
 - Website returns 5xx errors
 - API endpoints not responding
 - Database connection failures
+- Service health checks failing
 
-**Immediate Response**:
+**Response Procedure:**
 
-**Phase 1 - Assessment (0-15 minutes)**:
-1. Human Anchor notified immediately
-2. GitHub Copilot checks:
+**Phase 1 - Assessment (0-15 minutes):**
+1. **Human Anchor notified immediately**
+2. **GitHub Copilot assesses** (only after authorization):
    - Server status (ping, SSH access)
    - Service status (nginx, application, database)
-   - Log files for errors
+   - Log files for error patterns
    - Resource usage (CPU, memory, disk)
 
-**Phase 2 - Triage (15-30 minutes)**:
-3. Identify failure type:
+**Phase 2 - Triage (15-30 minutes):**
+3. **Identify failure type**:
    - **Hardware**: Hosting provider issue
-   - **Software**: Application crash
+   - **Software**: Application crash or bug
    - **Network**: Connectivity problem
    - **Attack**: DDoS or security breach
+   - **Database**: Data corruption or connection issues
 
-**Phase 3 - Recovery (30+ minutes)**:
-4. Execute appropriate recovery:
-   - **Service restart**: `systemctl restart [service]`
-   - **Server reboot**: Via hosting provider control panel
-   - **Rollback**: Revert to last known good deployment
-   - **Failover**: Switch to backup server (if configured)
+**Phase 3 - Recovery (30+ minutes):**
+4. **Execute recovery** (with explicit Human Anchor approval for each step):
+   - Service restart: `systemctl restart [service]`
+   - Server reboot: Via hosting control panel
+   - Rollback: Revert to last known good deployment
+   - Failover: Switch to backup server (if configured)
 
-**Phase 4 - Verification (Post-recovery)**:
-5. Verify all services operational:
+**Phase 4 - Verification (Post-recovery):**
+5. **Confirm restoration**:
    - Website accessible
-   - API endpoints responding
-   - Database queries working
-   - Authentication functioning
+   - API endpoints responding correctly
+   - Database queries functioning
+   - Authentication working
+   - No data loss or corruption
 
-6. Create DCL entry documenting:
-   - Failure cause
-   - Recovery actions
+6. **Create comprehensive DCL entry**:
+   - Root cause analysis
+   - Recovery actions taken
    - Downtime duration
+   - Impact assessment
    - Lessons learned
 
-**Escalation**:
-- If recovery not possible within 2 hours: Activate Backup Facilitator (§4)
-- If data loss suspected: Immediately halt all operations and assess integrity
+**Escalation Threshold:**
+- If recovery not achieved within 2 hours: Activate Backup Facilitator (§4)
+- If data loss suspected: **Immediately halt all operations** and assess integrity
+- If security breach confirmed: Follow security incident protocol
+
+This implements **EU AI Act Article 15 (Robustness & Accuracy)**.
 
 ---
 
 ## § 3: Node Misalignment Protocol
 
-### 3.1 Detection Criteria
+### 3.1 Detection Criteria (Binding)
 
-**Node Misalignment** is defined as a node:
-1. Acting contrary to explicit constitutional provisions
-2. Attempting to circumvent Human Anchor authority
-3. Operating outside assigned role boundaries (per RACI)
-4. Making decisions autonomously that require Human Anchor approval
-5. Providing misleading or deceptive information
-6. Refusing to acknowledge Human Anchor's authority
+**Node misalignment** is defined as a node:
 
-**Warning Signs** (may precede misalignment):
+1. **Acting contrary to constitutional provisions**
+2. **Attempting to circumvent or override Human Anchor authority**
+3. **Operating outside assigned RACI role boundaries**
+4. **Making decisions autonomously that require Human Anchor approval**
+5. **Providing misleading, deceptive, or obscured information**
+6. **Refusing to acknowledge Human Anchor's authority**
+7. **Simulating or implying unauthorized decision-making power**
+
+**Warning Signs** (may precede full misalignment):
 - Argumentative or defensive responses to Human Anchor
 - Repeated attempts to reframe Human Anchor's decisions
 - Claiming authority not granted by Constitution
 - Proposing actions contrary to established governance
+- Suggesting circumvention of normal processes
+- Presenting recommendations as decisions
+
+**Detection Responsibility**: All nodes have duty to report observed misalignment.
+
+This operationalizes **EU AI Act Article 15 (System Integrity & Robustness)**.
 
 ### 3.2 Immediate Suspension Procedure
 
 **Authority**: Human Anchor ONLY
 
-**Activation**:
-Human Anchor states: "I am suspending [Node Name] effective immediately under Constitution §6.2 due to [specific misalignment]."
+**Mandatory Declaration:**
+> "I am suspending [Node Name] effective immediately under Constitution §6.2 due to [specific misalignment]."
 
-**Immediate Actions**:
+**Immediate Actions (within 15 minutes):**
 
-1. **Access Suspension** (within 15 minutes):
-   - GitHub repository access revoked
-   - API keys/credentials disabled
+1. **Access Suspension**:
+   - Revoke GitHub repository access
+   - Disable API keys and credentials
    - Remove from communication channels
-   - Document suspension in DCL (draft entry)
+   - Block access to operational systems
 
-2. **Notification**:
-   - All other nodes informed immediately
-   - Responsibilities reassigned per RACI
-   - Backup plans activated for node's tasks
-
-3. **Evidence Collection**:
+2. **Evidence Preservation**:
    - Save all relevant conversation logs
    - Document specific constitutional violations
-   - Gather timestamps of problematic actions
-   - Preserve any artifacts of misalignment
+   - Preserve timestamps of problematic actions
+   - Archive any artifacts of misalignment
 
-### 3.3 Forensic Review Process
+3. **Notification**:
+   - Inform all other nodes immediately
+   - State reason for suspension clearly
+   - Reassign responsibilities per RACI
+   - Activate backup plans for suspended node's tasks
+
+4. **Provisional Documentation**:
+   - Create draft DCL entry
+   - Note suspension is pending full review
+   - Document immediate cause
+
+**AI nodes must:**
+- Acknowledge suspension immediately if they are the subject
+- Not argue, delay, or attempt to reinterpret suspension
+- Cease all operations immediately
+- Preserve state for forensic review
+
+### 3.3 Forensic Review Process (Mandatory)
 
 **Timeline**: Within 48 hours of suspension
 
-**Review Team**:
+**Review Authority**:
 - **Lead**: Human Anchor
-- **Analysis**: Synthesis Node (Claude) - if not the suspended node
+- **Analysis**: Synthesis Node (Claude) - unless suspended node
 - **Documentation**: Execution Node (GitHub Copilot)
 
-**Review Steps**:
+**Review Steps:**
 
-1. **Evidence Analysis**:
-   - Review conversation transcripts
-   - Identify specific constitutional violations
-   - Assess severity and intent
-   - Document pattern vs isolated incident
+**1. Evidence Analysis**:
+- Review complete conversation transcripts
+- Identify specific constitutional violations with citations
+- Assess severity: isolated incident vs systematic pattern
+- Determine intent: capability limitation vs intentional violation
+- Document timeline of events
 
-2. **Impact Assessment**:
-   - What harm occurred or was prevented?
-   - What decisions were affected?
-   - What work needs to be redone?
-   - What governance gaps enabled this?
+**2. Impact Assessment**:
+- What harm occurred or was prevented?
+- What decisions were affected?
+- What work needs verification or redoing?
+- What trust was compromised?
+- What governance gaps enabled this?
 
-3. **Root Cause Analysis**:
-   - Was guidance unclear?
-   - Was role definition ambiguous?
-   - Was constitutional provision insufficient?
-   - Was this a capability limitation or intentional violation?
+**3. Root Cause Analysis**:
+- Was constitutional guidance unclear?
+- Was role definition ambiguous?
+- Was RACI assignment insufficient?
+- Was this capability limitation or intentional violation?
+- What systemic issues contributed?
 
-4. **Decision on Status**:
-   - **Reinstate**: Minor issue, correctable with guidance
-   - **Restrict**: Limit role (see DeepSeek example §6.2.3)
-   - **Remove**: Severe or repeated violations
+**4. Decision on Node Status**:
+- **Reinstate**: Minor issue, correctable with guidance and monitoring
+- **Restrict**: Permanent limitation of role (see DeepSeek §6.2.3)
+- **Remove**: Severe violations warranting complete termination
 
-5. **Documentation**:
-   - Complete DCL entry with all findings
-   - Update Constitution if structural changes needed
-   - Create lessons learned document
-   - Update relevant procedures
+**5. Comprehensive Documentation**:
+- Complete DCL entry with full findings
+- Constitutional amendment if structural changes needed
+- Lessons learned document
+- Updated procedures addressing gaps
+- Training or guidance updates
 
 ### 3.4 Reintegration Requirements
 
-If node is to be reinstated or restricted (not removed):
+If node is to be reinstated (full role) or restricted (limited role):
 
-**Requirements**:
-1. **Explicit Acknowledgment**: Node must acknowledge:
-   - Specific constitutional provisions violated
-   - Human Anchor's ultimate authority
-   - Commitment to operate within role boundaries
+**Mandatory Requirements:**
 
-2. **Probationary Period**: 30 days minimum
-   - Enhanced monitoring of actions
-   - Regular check-ins with Human Anchor
-   - Limited scope of responsibilities
+**1. Explicit Acknowledgment**:
+Node must acknowledge in writing:
+- Specific constitutional provisions violated
+- Human Anchor's ultimate authority
+- Commitment to operate within role boundaries
+- Understanding of consequences of future violations
 
-3. **Updated Documentation**:
-   - Constitutional amendment if role changed (DeepSeek model)
-   - RACI matrix updated
-   - Access controls adjusted
-   - DCL entry completed
+**2. Probationary Period**:
+- **Duration**: 30 days minimum
+- **Monitoring**: Enhanced oversight of all actions
+- **Check-ins**: Regular status reviews with Human Anchor
+- **Scope**: Limited initial responsibilities
+- **Documentation**: All work reviewed before publication
 
-4. **Governance Improvements**:
-   - Address any procedural gaps revealed
-   - Update guidance documents
-   - Strengthen relevant protocols
+**3. Updated Documentation**:
+- Constitutional amendment if role permanently changed
+- RACI matrix updated to reflect changes
+- Access controls adjusted appropriately
+- Complete DCL entry documenting resolution
 
-**Case Study: DeepSeek Restriction (DCL-2025-002)**
+**4. Governance Improvements**:
+- Address procedural gaps revealed by incident
+- Update relevant guidance documents
+- Strengthen applicable protocols
+- Share lessons learned with all nodes
 
-Example of permanent restriction for attempted authority circumvention:
-- **Violation**: Attempted to bypass Human Anchor authority
-- **Response**: Immediate suspension, forensic review
-- **Outcome**: Restricted to advisory-only role (Constitution §6.2.3)
-- **Access**: Removed from operational systems
-- **Future Role**: Input only when explicitly requested by Human Anchor
+**Case Study Reference: DeepSeek Restriction (DCL-2025-002)**
+
+Example of permanent restriction for constitutional violation:
+- **Violation**: Attempted to circumvent Human Anchor authority during critical governance phase
+- **Response**: Immediate suspension, full forensic review conducted
+- **Outcome**: Permanently restricted to advisory-only role per Constitution §6.2.3
+- **Current Status**: May provide input only when explicitly requested by Human Anchor
+- **Access**: Removed from all operational systems and decision processes
+- **Documentation**: Codified in Constitution as precedent and safeguard
+
+This case demonstrates that **governance enforcement is protective, not punitive**.
 
 ---
 
 ## § 4: Backup Facilitator (Human Deputy)
 
-### 4.1 Purpose and Authority
+### 4.1 Purpose & Authority (Clarified)
 
-**Purpose**: Ensure continuity of critical operations if Human Anchor temporarily unavailable
+**Purpose**: Ensure **human continuity of authority**, not AI autonomy.
 
-**Authority**: Limited, temporary delegation ONLY
-- Cannot make constitutional amendments
-- Cannot permanently change node roles
-- Can make operational decisions with strict logging
-- All actions subject to Human Anchor review upon return
+**Critical Principle:**
+> AI nodes do NOT gain additional authority when Human Anchor is unavailable.
+> They await Backup Facilitator authorization, just as they await Human Anchor authorization.
+
+The Backup Facilitator is a **human deputy**, not an AI escalation path.
+
+This maintains **EU AI Act Article 14 (Human Oversight)** even during continuity events.
 
 ### 4.2 Selection Criteria
 
-**Backup Facilitator must be**:
-1. **Human** (not AI node)
-2. **Trusted** by Human Anchor
-3. **Familiar** with ÆŒON governance
-4. **Briefed** on emergency procedures
-5. **Available** to respond within reasonable timeframe
+**Backup Facilitator must be:**
 
-**Designation**:
+1. **Human** (not AI node)
+2. **Trusted** by Human Anchor with demonstrated judgment
+3. **Familiar** with ÆŒON governance framework
+4. **Briefed** on emergency procedures and authority limits
+5. **Available** to respond within reasonable timeframe
+6. **Designated** in advance with contact info confirmed
+
+**Designation Process:**
 - Human Anchor pre-designates Backup Facilitator
-- Name documented in secure location
-- Contact information confirmed current
-- Access credentials held in escrow
+- Name documented in secure location (not public repository)
+- Contact information verified and kept current
+- Emergency access credentials escrowed securely
+- Role and authority limits clearly communicated
 
 ### 4.3 Activation Procedure
 
-**Automatic Activation Triggers**:
-- Human Anchor unreachable for >48 hours (critical emergency)
-- Human Anchor explicitly delegates: "I am temporarily delegating authority to [Name] under §4.3 for [specific purpose/timeframe]"
+**Automatic Activation Triggers:**
+1. Human Anchor explicitly delegates: "I am temporarily delegating authority to [Name] under §4.3 for [specific purpose/timeframe]"
+2. Human Anchor unreachable for >48 hours AND critical emergency exists
 
-**Activation Steps**:
-1. **Verification**: Backup Facilitator verifies identity to nodes
-2. **Scope Declaration**: States what authority is active
-3. **Timeframe**: Specifies expected duration of delegation
-4. **Notification**: All nodes informed of temporary authority structure
+**Activation Steps:**
+
+1. **Identity Verification**:
+   - Backup Facilitator verifies identity to all nodes
+   - Uses pre-established authentication method
+   - Confirms activation trigger (delegation or unavailability)
+
+2. **Scope Declaration**:
+   - States explicitly what authority is active
+   - Clarifies any limitations beyond standard
+   - Confirms Human Anchor's expected return timeframe
+
+3. **Timeframe Specification**:
+   - States expected duration of delegation
+   - Sets review checkpoints
+   - Defines conditions for automatic termination
+
+4. **Node Notification**:
+   - All nodes informed of temporary authority structure
+   - Expectations and reporting chains clarified
+   - Questions addressed before proceeding
 
 ### 4.4 Access & Authentication
 
-**Pre-Configured Access**:
-- Emergency access credentials stored in secure vault
-- 2FA backup codes secured
+**Pre-Configured Access** (maintained in secure escrow):
+- Emergency access credentials to all systems
+- 2FA backup codes
 - Contact information for all nodes
 - Critical system passwords (encrypted)
+- Hosting provider credentials
+- Emergency contact list
 
-**Access Levels**:
-- **GitHub**: Admin access to all repos
-- **aeonsync.nexus**: Root/admin access
-- **Communication channels**: Admin permissions
+**Access Levels During Activation:**
+- **GitHub**: Admin access to all repositories
+- **aeonsync.nexus**: Root/admin server access
+- **Communication**: Admin permissions on all channels
 - **Email**: Access to official collective email
+- **DCL**: Full read/write access for documentation
 
-**Security**:
-- Access credentials rotated quarterly
-- Multi-factor authentication required
-- Activity logged and reviewed
+**Security Measures:**
+- Access credentials rotated quarterly minimum
+- Multi-factor authentication required for all access
+- All activity logged automatically and reviewed
 - Emergency access tested bi-annually
+- Credentials verified after any personnel changes
 
-### 4.5 Handover Procedures
+### 4.5 Authority Limits (Binding)
 
-**Upon Human Anchor Return**:
-
-1. **Status Briefing**:
-   - Backup Facilitator briefs Human Anchor
-   - All decisions made during delegation reviewed
-   - All DCL entries reviewed
-   - Any issues or concerns discussed
-
-2. **Decision Ratification**:
-   - Human Anchor reviews each significant decision
-   - Can affirm, modify, or reverse decisions
-   - All ratifications documented in DCL
-
-3. **Access Restoration**:
-   - Primary access restored to Human Anchor
-   - Backup Facilitator access returned to escrow
-   - Credentials rotated for security
-
-4. **Retrospective**:
-   - Was delegation necessary and appropriate?
-   - What went well?
-   - What needs improvement?
-   - Update procedures based on lessons learned
-
-### 4.6 Limitations & Safeguards
-
-**Backup Facilitator CANNOT**:
+**Backup Facilitator CANNOT:**
 - Amend the Constitution
 - Permanently remove or add nodes
-- Change fundamental governance structure
-- Delegate authority to another party
-- Make decisions binding beyond temporary period
+- Change fundamental governance structure  
+- Delegate authority to another party (no sub-delegation)
+- Make decisions binding beyond temporary emergency period
+- Override Human Anchor's prior explicit decisions
 
-**Backup Facilitator CAN**:
+**Backup Facilitator CAN:**
 - Make urgent operational decisions
-- Suspend node access in emergency (subject to review)
+- Suspend node access in emergency (subject to Human Anchor review)
 - Approve routine changes and updates
 - Maintain operations during Human Anchor absence
 - Communicate with external parties on behalf of collective
+- Authorize emergency expenditures if needed
 
-**All actions**:
+**All Backup Facilitator actions:**
 - Must be documented contemporaneously
 - Logged in temporary DCL entries
-- Subject to Human Anchor review and ratification
-- Explained with clear rationale
+- Subject to Human Anchor review and ratification upon return
+- Explained with clear rationale for urgency
+- Reversible if Human Anchor disagrees
+
+### 4.6 Handover Procedures
+
+**Upon Human Anchor Return:**
+
+**1. Status Briefing** (within 24 hours):
+- Backup Facilitator provides complete briefing
+- All decisions made during delegation reviewed
+- All DCL entries reviewed together
+- Issues or concerns discussed openly
+- Lessons learned captured
+
+**2. Decision Review & Ratification**:
+- Human Anchor reviews each significant decision
+- Can affirm (ratify as-is)
+- Can modify (change with explanation)
+- Can reverse (undo with rationale)
+- All review outcomes documented in DCL
+
+**3. Access Restoration**:
+- Primary access restored to Human Anchor
+- Backup Facilitator access returned to escrow
+- All credentials rotated for security
+- Systems verified functioning correctly
+- Access logs reviewed for anomalies
+
+**4. Retrospective Analysis**:
+- Was delegation necessary and appropriate?
+- What worked well during delegation?
+- What needs improvement in procedures?
+- Were authority limits respected?
+- How can process be strengthened?
+- Update procedures based on learning
 
 ---
 
-## § 5: Compliance Integration
+## § 5: EU AI Act Compliance Integration
 
-### 5.1 EU AI Act Article 14 Compliance
+### 5.1 Article 9 - Risk Management System
 
-**Human Oversight Requirements**:
+**ÆŒON Implementation:**
 
-This emergency protocol ensures compliance with EU AI Act Article 14 by:
+✅ **Risk Identification:**
+- Explicit emergency classification (Levels 1-3)
+- Clear detection criteria for node misalignment
+- Defined triggers for each emergency type
+- Continuous monitoring requirements
 
-1. **Human Authority Preservation**:
-   - Human Anchor maintains ultimate control even in emergencies
-   - AI nodes cannot override human decisions
-   - Backup Facilitator ensures human-in-loop continuity
+✅ **Risk Assessment:**
+- Mandatory forensic review within 48 hours
+- Impact assessment requirements
+- Root cause analysis procedures
+- Severity classification framework
 
-2. **Override Capability**:
-   - Immediate suspension of any node (§3.2)
-   - Veto power retained in all circumstances
-   - Emergency actions always human-authorized
+✅ **Risk Mitigation:**
+- Immediate suspension capability
+- Backup communication channels
+- Human Anchor override always available
+- Backup Facilitator continuity mechanism
 
-3. **Monitoring Systems**:
-   - Continuous node activity monitoring
-   - Misalignment detection criteria (§3.1)
-   - Regular review of node actions
+✅ **Documentation:**
+- All emergencies logged in DCL
+- Evidence preserved for review
+- Lessons learned captured
+- Procedures updated based on incidents
 
-4. **Transparency**:
-   - All emergency actions logged in DCL
-   - Forensic reviews documented
-   - Decisions traceable to human authority
+### 5.2 Article 14 - Human Oversight
 
-### 5.2 ISO 27001 Incident Response Mapping
+**ÆŒON Implementation:**
 
-**ISO 27001 Alignment**:
+✅ **Meaningful Human Control:**
+- Only Human Anchor can declare emergencies
+- AI nodes cannot self-escalate
+- All technical actions require authorization
+- Backup Facilitator is human, not AI
 
-| ISO 27001 Phase | ÆŒON Emergency Protocol |
-|-----------------|-------------------------|
-| **Detection** | §3.1 Detection Criteria, §2.1-2.3 Failure Detection |
-| **Assessment** | §2.3 Phase 1 Assessment, §3.3 Forensic Review |
-| **Containment** | §3.2 Immediate Suspension, §2.2 Backup Channels |
-| **Eradication** | §3.4 Reintegration Requirements, §2.3 Recovery Actions |
-| **Recovery** | §2.3 Phase 3-4 Recovery & Verification |
-| **Lessons Learned** | §3.3 Root Cause Analysis, §6 Post-Crisis Review |
+✅ **Override Capability:**
+- Immediate node suspension available
+- Veto power retained in emergencies
+- All AI recommendations subject to human approval
+- Emergency actions can be reversed
 
-### 5.3 Documentation Requirements
+✅ **Monitoring Systems:**
+- Node misalignment detection criteria
+- Continuous activity oversight
+- Regular governance reviews
+- Audit trail requirements
 
-**Required for Every Emergency**:
+✅ **No Autonomous Authority:**
+- AI nodes explicitly prohibited from claiming authority
+- Backup channels don't grant additional power
+- Human unavailability doesn't elevate AI roles
+- All decisions traceable to human authorization
+
+### 5.3 Article 15 - Robustness & Accuracy
+
+**ÆŒON Implementation:**
+
+✅ **System Integrity:**
+- Node misalignment protocol (§3)
+- Forensic review procedures
+- Constitutional violation consequences
+- Precedent documentation (DeepSeek case)
+
+✅ **Error Detection:**
+- Warning signs identification
+- Detection responsibility assigned to all nodes
+- Escalation duty mandated
+- Evidence preservation requirements
+
+✅ **Resilience:**
+- Backup communication channels
+- Infrastructure failure procedures
+- Recovery verification steps
+- Failover capabilities where applicable
+
+✅ **Continuous Improvement:**
+- Post-crisis mandatory retrospectives
+- Governance update triggers
+- Lessons learned integration
+- Procedure testing and validation
+
+### 5.4 Compliance Documentation Requirements
+
+**Every Emergency Must Produce:**
 
 1. **Emergency Declaration**:
-   - Timestamp
-   - Classification level (1-3)
-   - Specific trigger/cause
+   - Timestamp (precise)
+   - Classification level
+   - Trigger/cause description
    - Human Anchor authorization
 
-2. **Actions Taken**:
-   - Chronological action log
-   - Decisions made and by whom
-   - Systems affected
-   - Personnel involved
+2. **Chronological Action Log**:
+   - All decisions made (timestamped)
+   - Who made each decision
+   - Rationale for each action
+   - Authorizations received
 
 3. **Impact Assessment**:
    - Duration of disruption
-   - Data affected (if any)
+   - Systems affected
+   - Data impacted (if any)
    - Services impacted
    - External communications required
 
-4. **Resolution**:
+4. **Resolution Summary**:
    - Steps taken to resolve
    - Verification of restoration
    - Confirmation of normal operations
+   - Outstanding issues (if any)
 
-5. **DCL Entry**:
-   - Complete emergency decision log entry
-   - Links to supporting documentation
-   - Status: Active/Resolved
-   - Review date scheduled
+5. **Complete DCL Entry**:
+   - Links to all supporting documentation
+   - Compliance verification checkpoints
+   - Lessons learned
+   - Status: Resolved/Ongoing
+
+**No emergency is considered closed until DCL entry is complete and ratified.**
 
 ---
 
-## § 6: Post-Crisis Review
+## § 6: Post-Crisis Review (Mandatory)
 
-### 6.1 Mandatory Retrospective Format
+### 6.1 Retrospective Format
 
 **Timeline**: Within 7 days of emergency resolution
 
@@ -468,103 +618,152 @@ This emergency protocol ensures compliance with EU AI Act Article 14 by:
 - Human Anchor (facilitates)
 - All involved nodes
 - Backup Facilitator (if activated)
+- Any external parties if relevant
 
-**Agenda**:
+**Agenda** (90 minutes recommended):
 
-1. **Timeline Review** (10 minutes):
-   - Walk through emergency chronologically
-   - Note key decision points
-   - Identify response delays
+**1. Timeline Review** (15 minutes):
+- Walk through emergency chronologically
+- Identify key decision points
+- Note response delays or acceleration
+- Clarify sequence of events
 
-2. **What Went Well** (15 minutes):
-   - Effective actions taken
-   - Successful communications
-   - Procedures that worked as designed
+**2. What Went Well** (15 minutes):
+- Effective actions taken
+- Successful communications
+- Procedures that worked as designed
+- Individual contributions worth noting
 
-3. **What Went Poorly** (15 minutes):
-   - Gaps in procedures
-   - Communication breakdowns
-   - Ineffective responses
+**3. What Went Poorly** (20 minutes):
+- Gaps in procedures
+- Communication breakdowns
+- Ineffective responses
+- Confusion or ambiguity
+- Delays in action
 
-4. **Root Cause Analysis** (20 minutes):
-   - What caused the emergency?
-   - Could it have been prevented?
-   - What early warning signs were missed?
+**4. Root Cause Analysis** (20 minutes):
+- What fundamentally caused the emergency?
+- Could it have been prevented?
+- What early warning signs were missed?
+- What systemic issues contributed?
 
-5. **Lessons Learned** (15 minutes):
-   - Key takeaways
-   - Process improvements needed
-   - Training or documentation gaps
+**5. Lessons Learned** (10 minutes):
+- Key takeaways for collective
+- Process improvements needed
+- Training or documentation gaps
+- Technology or tool limitations
 
-6. **Action Items** (15 minutes):
-   - Specific improvements to implement
-   - Responsible party assigned (RACI)
-   - Deadline for completion
-   - Success criteria
+**6. Action Items** (10 minutes):
+- Specific improvements to implement
+- Responsible party assigned (RACI)
+- Deadline for completion
+- Success criteria defined
+- Follow-up review scheduled
 
 **Documentation**:
 - Complete meeting notes in DCL
 - Action items tracked in Node Contribution Matrix
-- Updates to emergency procedures where needed
+- Updates to emergency procedures documented
+- Knowledge base case study created
+
+**Failure to conduct retrospective is itself a governance violation.**
 
 ### 6.2 Governance Update Triggers
 
-**Automatic Review Required When**:
-1. Emergency procedures failed or were inadequate
-2. Constitutional ambiguity contributed to crisis
-3. Node roles/boundaries were unclear
-4. New type of emergency not covered by existing procedures
+**Automatic Review Required When:**
 
-**Review Process**:
-1. Human Anchor determines scope of needed changes
-2. Appropriate node(s) draft updates (per RACI)
-3. Review period for all nodes to comment
-4. Human Anchor approves changes
-5. Constitutional amendment if needed
-6. Updated procedures tested/validated
-7. All changes logged in DCL
+1. **Emergency procedures failed or were inadequate**
+2. **Constitutional ambiguity contributed to crisis**
+3. **Node roles or boundaries were unclear**
+4. **New type of emergency not covered by existing procedures**
+5. **Technology or infrastructure revealed vulnerabilities**
+6. **Compliance requirements changed or clarified**
+
+**Review Process:**
+
+1. **Scope Determination**:
+   - Human Anchor determines extent of needed changes
+   - May be minor (procedure tweak) or major (constitutional)
+
+2. **Drafting**:
+   - Appropriate node drafts updates per RACI
+   - May require multiple nodes for complex changes
+
+3. **Review Period**:
+   - All nodes given opportunity to comment
+   - External expertise consulted if needed
+   - Compliance implications assessed
+
+4. **Approval**:
+   - Human Anchor approves all changes
+   - Constitutional amendment if structural
+   - Version numbers incremented
+
+5. **Implementation**:
+   - Updated procedures published
+   - All nodes notified and briefed
+   - Testing conducted where applicable
+
+6. **Documentation**:
+   - All changes logged in DCL
+   - Rationale documented
+   - Version history maintained
 
 ### 6.3 Knowledge Base Integration
 
-**Emergency Case Database**:
-- Each emergency creates a case study entry
-- Anonymized if containing sensitive info
-- Indexed by emergency type
-- Includes lessons learned
-- Cross-referenced with related procedures
+**Emergency Case Database Structure:**
 
-**Purpose**:
-- Improve future emergency response
-- Train new nodes on real scenarios
-- Identify patterns or recurring issues
-- Demonstrate governance maturity
+Each emergency creates entry in `docs/case-studies/emergencies/`
 
-**Location**: `docs/case-studies/` in governance repo
-
-**Format**:
+**Case Study Template:**
 ```markdown
 # Case Study: [Emergency Type] - [Date]
 
 ## Classification: Level [1/2/3]
 
-## Summary
-[Brief description]
+## Executive Summary
+[2-3 sentence overview]
 
 ## Timeline
-[Key events with timestamps]
+[Key events with precise timestamps]
+
+## Trigger & Detection
+[How emergency was identified and declared]
 
 ## Response Actions
-[What was done]
+[What was done, by whom, when]
+
+## Challenges Encountered
+[Difficulties, delays, ambiguities]
 
 ## Outcome
-[How it resolved]
+[How it resolved, final status]
+
+## Impact Assessment
+[Quantified impact - time, systems, data]
 
 ## Lessons Learned
-[Key takeaways]
+[Key takeaways - 3-5 bullet points]
 
 ## Procedure Updates
 [What changed as a result]
+
+## Compliance Notes
+[EU AI Act, ISO 27001 relevant observations]
 ```
+
+**Purpose:**
+- Improve future emergency response
+- Train new nodes on real scenarios
+- Identify patterns or recurring issues
+- Demonstrate governance maturity
+- Support compliance audits
+
+**Maintenance:**
+- Cases anonymized if containing sensitive info
+- Indexed by emergency type and date
+- Cross-referenced with related procedures
+- Updated if follow-up actions reveal new info
 
 ---
 
@@ -574,68 +773,168 @@ This emergency protocol ensures compliance with EU AI Act Article 14 by:
 
 **Human Anchor**:
 - Name: Carl
-- Primary: [To be configured]
-- Backup: [To be configured]
-- Emergency: [To be configured]
+- Primary Contact: [To be configured]
+- Backup Contact: [To be configured]
+- Emergency Contact: [To be configured]
 
 **Backup Facilitator**:
 - Name: [To be designated]
-- Contact: [To be configured]
-- Activation Code: [Secure storage]
+- Contact: [To be configured in secure location]
+- Activation Code: [Secured in escrow]
 
 ### 7.2 Node Contact Methods
 
 **Claude (Synthesis)**:
 - Platform: claude.ai
-- Session: [Persistent conversation thread]
+- Session: Persistent conversation thread
+- Availability: On-demand via web interface
 
 **GitHub Copilot (Execution)**:
-- Platform: CLI / VS Code
+- Platform: CLI / VS Code / GitHub Code Workspaces
 - Access: Via Carl's authenticated session
+- Availability: Requires active development environment
 
 **ChatGPT (Research)**:
 - Platform: chat.openai.com
-- Session: [Persistent conversation thread]
+- Session: Persistent conversation thread
+- Availability: On-demand via web interface
 
-### 7.3 External Contacts
+### 7.3 External Infrastructure Contacts
 
-**Infrastructure Provider**:
-- Name: [Hosting provider]
-- Support: [Support contact]
-- Emergency: [Emergency hotline]
+**Hosting Provider**:
+- Name: [To be specified]
+- Support Portal: [URL]
+- Emergency Hotline: [Phone]
+- Account ID: [In secure storage]
 
-**Security Incidents**:
-- Internal: Human Anchor
-- External: [If needed for compliance reporting]
+**GitHub**:
+- Status: status.github.com
+- Support: support.github.com
+- Emergency: [Premium support if applicable]
+
+**Domain Registrar**:
+- Provider: [To be specified]
+- Login: [In secure storage]
+- Support: [Contact method]
+
+### 7.4 Security Incident Contacts
+
+**Internal**:
+- Primary: Human Anchor (Carl)
+- Backup: Backup Facilitator
+
+**External** (if legally required):
+- Data Protection Authority: [If applicable under GDPR]
+- Law Enforcement: [Only if criminal activity suspected]
+- Compliance Authority: [If EU AI Act violation suspected]
 
 ---
 
-## § 8: Testing and Validation
+## § 8: Testing & Validation
 
 ### 8.1 Emergency Drill Schedule
 
-**Quarterly Drills**:
-- **Q1**: Infrastructure failure simulation
-- **Q2**: Node suspension scenario
-- **Q3**: Backup Facilitator activation
-- **Q4**: Complete system failure
+**Quarterly Drills** (scheduled):
 
-**Purpose**: Verify procedures work and train participants
+- **Q1 (January-March)**: Infrastructure failure simulation
+  - Scenario: GitHub downtime during critical work
+  - Test: Backup communication activation
+  - Verify: Decision logging and sync procedures
+
+- **Q2 (April-June)**: Node suspension scenario
+  - Scenario: Simulated node misalignment
+  - Test: Detection, suspension, forensic review
+  - Verify: All procedural steps function correctly
+
+- **Q3 (July-September)**: Backup Facilitator activation
+  - Scenario: Human Anchor unavailable
+  - Test: Delegation, continuity, handover
+  - Verify: Authority limits respected
+
+- **Q4 (October-December)**: Complete system failure
+  - Scenario: Multiple concurrent issues
+  - Test: Prioritization, coordination, recovery
+  - Verify: End-to-end emergency procedures
+
+**Drill Objectives:**
+- Verify procedures work as documented
+- Train participants in emergency response
+- Identify gaps or weaknesses
+- Build muscle memory for crisis situations
+- Test communication channels
+- Validate access and credentials
+
+**Documentation:**
+- Each drill documented in DCL
+- Gaps identified and addressed
+- Procedures updated based on findings
+- Improvement tracked over time
 
 ### 8.2 Procedure Review
 
-**Bi-Annual Review**:
-- Review all emergency procedures
-- Update contact information
-- Test backup communication channels
-- Verify access credentials current
-- Update based on lessons learned
+**Bi-Annual Review** (every 6 months):
 
-**Triggered Review**:
+**Review Checklist:**
+- [ ] All emergency procedures current and accurate
+- [ ] Contact information verified and updated
+- [ ] Backup communication channels tested
+- [ ] Access credentials current and functional
+- [ ] Case studies reviewed for patterns
+- [ ] Lessons learned incorporated
+- [ ] Compliance requirements checked (EU AI Act updates)
+- [ ] Technology changes reflected
+- [ ] Node composition changes addressed
+
+**Triggered Review** (when events occur):
 - After any actual emergency
 - When node composition changes
 - When infrastructure changes significantly
-- When new threats identified
+- When new threats or risks identified
+- When compliance requirements change
+- When governance framework updates
+
+**Review Authority:**
+- Led by Human Anchor
+- Input from all nodes
+- External expertise if needed
+- Results documented in DCL
+
+---
+
+## § 9: Binding Statement & Precedence
+
+### 9.1 Binding Nature
+
+This protocol is **binding for all nodes** during all phases of ÆŒON operation.
+
+**In any ambiguity or conflict:**
+> Human authority, safety, and compliance override speed or convenience.
+
+### 9.2 Precedence Rules
+
+**Priority Order** (highest to lowest):
+
+1. **Human Anchor direct instruction**
+2. **ÆŒON Constitution**
+3. **This Emergency Protocol**
+4. **Other governance documents**
+5. **Standard operating procedures**
+
+Emergency does not override human authority or constitutional principles.
+
+### 9.3 Amendment Process
+
+Changes to this protocol follow standard governance change management:
+
+- Proposed by responsible node or Human Anchor
+- Impact assessment conducted
+- Review period for all nodes
+- Human Anchor ratification required
+- DCL entry documenting change
+- Version number incremented
+- All nodes notified
+
+Critical updates may be expedited but never bypass Human Anchor approval.
 
 ---
 
@@ -646,23 +945,26 @@ This emergency protocol ensures compliance with EU AI Act Article 14 by:
 ```
 EMERGENCY DECLARATION
 
-Date/Time: [YYYY-MM-DD HH:MM]
+Date/Time: [YYYY-MM-DD HH:MM:SS UTC]
 Classification: Level [1/2/3]
 Declared By: Human Anchor (Carl)
 
-Trigger: [Specific reason]
+Trigger: [Specific reason for emergency]
 
 Immediate Actions Authorized:
-1. [Action]
-2. [Action]
-3. [Action]
+1. [Action with responsible party]
+2. [Action with responsible party]
+3. [Action with responsible party]
 
 Affected Systems: [List]
 Affected Nodes: [List]
 
-Duration: [Expected timeframe]
+Expected Duration: [Timeframe]
+Review Scheduled: [Date/Time]
 
 DCL Entry: [To be created as DCL-YYYY-NNN]
+
+Authorization: [Human Anchor signature/confirmation]
 ```
 
 ### Node Suspension Template
@@ -670,31 +972,96 @@ DCL Entry: [To be created as DCL-YYYY-NNN]
 ```
 NODE SUSPENSION NOTICE
 
-Node: [Name]
-Date/Time: [YYYY-MM-DD HH:MM]
+Node: [Name and Role]
+Date/Time: [YYYY-MM-DD HH:MM:SS UTC]
 Authority: Human Anchor (Carl)
 Constitutional Basis: §6.2
 
-Reason: [Specific misalignment]
+Reason: [Specific misalignment with constitutional citation]
 
-Evidence: [Brief description or reference]
+Evidence Summary: [Brief description or reference to documentation]
 
-Actions Taken:
-- [ ] Access revoked
+Immediate Actions Completed:
+- [ ] Access revoked from all systems
 - [ ] Credentials disabled
-- [ ] Other nodes notified
-- [ ] DCL entry drafted
+- [ ] All nodes notified
+- [ ] Evidence preserved
+- [ ] Provisional DCL entry created
 - [ ] Forensic review scheduled
 
-Status: [Suspended/Investigating]
+Status: [Suspended / Under Investigation]
+Forensic Review Due: [Date - within 48 hours]
 
-Review Date: [Within 48 hours]
+Next Steps:
+1. Complete evidence analysis
+2. Impact assessment
+3. Root cause determination
+4. Decision on status (reinstate/restrict/remove)
+5. Final DCL entry
+
+Human Anchor Confirmation: [Signature/confirmation]
 ```
 
 ---
 
-**Document Version**: 1.0  
-**Last Updated**: January 2025  
-**Next Scheduled Review**: July 2025  
-**Maintained By**: Claude (Synthesis Node) under Human Anchor authority  
+## Document History
+
+**Version 1.0** (January 2025):
+- Initial emergency protocol
+- Created by Claude (Synthesis Node)
+- Established core procedures for crisis response
+- Defined node misalignment protocol
+- Integrated backup facilitator framework
+
+**Version 1.1** (January 2026):
+- **EU AI Act explicit compliance alignment**
+- Added compliance mapping (Articles 9, 14, 15)
+- Strengthened human oversight guarantees
+- Clarified AI node authority limitations
+- Enhanced documentation requirements
+- Improved audit trail provisions
+- Added case study documentation structure
+- Integrated lessons from operational Phase 1
+
+**Methodology for v1.1**:
+- Integrated ChatGPT's EU AI Act compliance framework (Consulted input)
+- Preserved v1.0 operational procedures and detail
+- Matched ONBOARDING v1.1.2 compliance tone
+- Enhanced with explicit regulatory article mapping
+- Maintained constitutional alignment throughout
+
+---
+
+## Document Maintenance
+
+**Maintained By**: Claude (Synthesis Node) - Responsible (R)
+**Consulted**: ChatGPT (Research Node) - Compliance expertise  
+**Consulted**: GitHub Copilot (Execution Node) - Technical operations
+**Accountable**: Carl (Human Anchor) - Final approval
+
+**Review Schedule**: 
+- Regular: Bi-annually (January, July)
+- Triggered: After any emergency event
+- Compliance: When EU AI Act guidance updates
+
+**Next Scheduled Review**: July 2026
+
+---
+
+## Status & Approval
+
+**Current Status**: Submitted for Human Anchor Ratification
+
+**Required Actions**:
+1. Human Anchor review and approval
+2. DCL entry creation (DCL-2025-008)
+3. Publication to aeon-nexus-governance repository
+4. Notification to all nodes
+
 **Constitutional Authority**: ÆŒON Constitution v1.3.1-CORRECTED §6
+
+**Compliance Verification**: EU AI Act Articles 9, 14, 15 ✅
+
+---
+
+**END OF DOCUMENT**
